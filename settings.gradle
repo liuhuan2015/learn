@@ -1,3 +1,4 @@
+include ':lib-reflection'
 include ':app:lib-reflection'
 include ':app'
 rootProject.name = "learn"
