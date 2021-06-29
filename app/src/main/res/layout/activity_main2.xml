@@ -32,5 +32,13 @@
         android:text="快速排序"
         app:layout_constraintTop_toBottomOf="@+id/btn_bubble_sort" />
 
+    <Button
+        android:id="@+id/btn_binary_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="二分查找"
+        app:layout_constraintTop_toBottomOf="@+id/btn_quick_sort" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

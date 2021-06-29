@@ -21,6 +21,7 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
 
     Button bubbleSort;
     Button quickSort;
+    Button binarySearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +30,13 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
         Binding.bind(this);
         bubbleSort = findViewById(R.id.btn_bubble_sort);
         quickSort = findViewById(R.id.btn_quick_sort);
+        binarySearch = findViewById(R.id.btn_binary_search);
         textView.setText("哈哈哈哈");
 
 
         bubbleSort.setOnClickListener(this);
         quickSort.setOnClickListener(this);
+        binarySearch.setOnClickListener(this);
     }
 
     @Override
@@ -47,6 +50,11 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
                 int[] arr = {2, 5, 1, 3, 8, 5, 7, 4, 3};
                 int[] arrSorted = quickSort(arr, 0, arr.length - 1);
                 Log.i(TAG, "quickSort: " + Arrays.toString(arrSorted));
+                break;
+            case R.id.btn_binary_search:
+                int[] source = {1, 4, 5, 8, 9, 13, 55, 62, 77, 89, 111, 323};
+                int index = binarySearch(source, 4);
+                Log.i(TAG, "binarySearch, index: " + index);
                 break;
         }
     }
@@ -101,4 +109,32 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
         if (j + 1 < end) arr = quickSort(arr, j + 1, end);
         return (arr);
     }
+
+    /**
+     * 二分查找
+     * 前置条件：数组是有序的
+     * 时间复杂度：O(log2n)
+     * 推导过程：
+     * 被查找区间的数据量大小变化：
+     * n、n/2,n/4 ... n/2^k
+     * 当 n/2^k 为 1 时，就找了目标数据，此时查找次数是：log2n，即时间复杂度是O(log2n)
+     */
+    public int binarySearch(int[] arr, int target) {
+        int start = 0;
+        int end = arr.length;
+
+        while (start <= end) {
+
+            int middle = (start + end) / 2;
+            if (target == arr[middle]) {
+                return middle;
+            } else if (target < arr[middle]) {
+                end = middle - 1;
+            } else {
+                start = middle + 1;
+            }
+        }
+        return -1;
+    }
+
 }
