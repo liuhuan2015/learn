@@ -12,10 +12,25 @@
         android:layout_height="wrap_content"
         android:text="liuhuan"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_bubble_sort"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="冒泡排序"
+        app:layout_constraintTop_toBottomOf="@+id/textview" />
+
+    <Button
+        android:id="@+id/btn_quick_sort"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="快速排序"
+        app:layout_constraintTop_toBottomOf="@+id/btn_bubble_sort" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
