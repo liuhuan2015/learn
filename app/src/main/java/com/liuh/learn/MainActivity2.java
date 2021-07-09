@@ -3,8 +3,11 @@ package com.liuh.learn;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
@@ -29,6 +32,7 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
     Button quickSort;
     Button binarySearch;
     Button handlerClick;
+    Button sportView;
 
     MyHandler mHandler = new MyHandler(MainActivity2.this);
 
@@ -71,6 +75,7 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
         quickSort = findViewById(R.id.btn_quick_sort);
         binarySearch = findViewById(R.id.btn_binary_search);
         handlerClick = findViewById(R.id.btn_handler);
+        sportView = findViewById(R.id.sport_view);
         textView.setText("哈哈哈哈");
 
         Student p = new Student("zhangsan");
@@ -88,6 +93,7 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
         quickSort.setOnClickListener(this);
         binarySearch.setOnClickListener(this);
         handlerClick.setOnClickListener(this);
+        sportView.setOnClickListener(this);
     }
 
     @Override
@@ -118,6 +124,9 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
                 Message m = mHandler.obtainMessage();
                 m.what = 1;
                 mHandler.sendMessage(m);
+                break;
+            case R.id.sport_view:
+                startActivity(new Intent(MainActivity2.this,SportViewActivity.class));
                 break;
         }
     }
